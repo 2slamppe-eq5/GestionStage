@@ -1,9 +1,9 @@
-<script language="JavaScript" type="text/javascript" src="../includes/fonctionsJavascript.inc.js"> </script>
+﻿<script language="JavaScript" type="text/javascript" src="../includes/fonctionsJavascript.inc.js"> </script>
 <script language="JavaScript" type="text/javascript" src="../includes/jquery.js"> </script>
 <script language="JavaScript" type="text/javascript" src="../includes/ajax.inc.js"> </script>
 <form >
     
-<legend>Choisir la classe à afficher</legend>
+<legend>Choisir la classe Ã  afficher</legend>
        
         
         <label for="etudes">Etudes :</label>
@@ -11,9 +11,9 @@
         <select  type="select" name="etudes" id="etudes"><!-- OnChange apelle la fonction de remplissage des formullaire classe et option -->
             <option value="" Selected></option>
         <?php 
-                   $tab1=array();//variable de stockage des id filliére
+                   $tab1=array();//variable de stockage des id filliÃ©re
                    $cpt1=0;
-            // création du contenue du select :
+            // crÃ©ation du contenue du select :
             foreach ($this->lesFormations as $formations) { 
                    $tab1[$cpt1]=$formations->NUMFILIERE;     
                    echo'<option value="'.$tab1[$cpt1].'">'.$formations->LIBELLEFILIERE.'</option>';   
@@ -27,12 +27,12 @@
         
         
             <div id="FormulaireClasse">
-            <!-- div qui contiendra le select de classe en lien à la fonction affichageClasse -->    
+            <!-- div qui contiendra le select de classe en lien Ã  la fonction affichageClasse -->    
             </div>
         
         
             <div id="FormulaireOption">
-            <!-- dic qui contiendra le selec d'option en lien à la fonction affichageClasse -->   
+            <!-- dic qui contiendra le selec d'option en lien Ã  la fonction affichageClasse -->   
             </div>
         
             <input id="boutonAfficher" type='button' value="Afficher cette classe" ></input>

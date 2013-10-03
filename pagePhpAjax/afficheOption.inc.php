@@ -1,20 +1,20 @@
-<?php
-    // connection à la base de donées
+﻿<?php
+    // connection Ã  la base de donÃ©es
     $db=mysql_connect('localhost','root','');
     mysql_select_db('GESTAGE',$db);
-    //instentiation des donnée
+    //instentiation des donnÃ©e
     $chaine='';
-    //récupération des donnée envoyer par jQuery
+    //rÃ©cupÃ©ration des donnÃ©e envoyer par jQuery
     if(isset($_GET['value'])){
         $chaine=$_GET['value'];
     }
-    //si la valeur récupérer est égale a 4 (étudiant SIO) les option sont créé
+    //si la valeur rÃ©cupÃ©rer est Ã©gale a 4 (Ã©tudiant SIO) les option sont crÃ©Ã©
     if($chaine=='4'){
-    //début de la création du select
+    //dÃ©but de la crÃ©ation du select
         echo'<label for="option">option :</label>';
         echo'<select type="select" name="option" id="option">';
  
-        $requet="SELECT * FROM SPECIALITE ;"; // requette pour récupérer les donnée option
+        $requet="SELECT * FROM SPECIALITE ;"; // requette pour rÃ©cupÃ©rer les donnÃ©e option
         $requetExe=mysql_query($requet);
     //$lesClasses = new M_ListeClasses();
     //$classe=$lesClasses->get($chaine);

@@ -1,5 +1,5 @@
-<!-- VARIABLES NECESSAIRES -->
-<!-- $this->message : à afficher sous le formulaire -->
+﻿<!-- VARIABLES NECESSAIRES -->
+<!-- $this->message : Ã  afficher sous le formulaire -->
 <form method="post" action=".?controleur=utilisateur&action=modifierCoordonees">
     <h1>Information personelle</h1>
     <fieldset>
@@ -15,11 +15,11 @@
         <label for="tel">Tel :</label>
         <input type="text" name="tel" id="tel" readonly="readonly" value="<?php echo $this->lesInformations->NUM_TEL; ?>"></input><br/>
         <?php
-        //contenue a affiché en fonction de l'utilsiateur
+        //contenue a affichÃ© en fonction de l'utilsiateur
             if (MaSession::get('role') != 4){
-                //contenue si ce n'est pas un étudiant , donc vide
+                //contenue si ce n'est pas un Ã©tudiant , donc vide
                 
-            }else{//contenue si c'est un étudiant
+            }else{//contenue si c'est un Ã©tudiant
         ?>
                 <label for="etudes">Etudes :</label>
                 <input type="text" name="etudes" id="etudes" readonly="readonly" value="<?php echo $this->lesInformations->ETUDES; ?>"></input><br/>

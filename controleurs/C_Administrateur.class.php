@@ -1,10 +1,10 @@
-
+﻿
 <?php
 
 class C_Administrateur extends Controleur{
     
     
-    // Fonction d'affichage du formulaire de création d'un utilisateur.
+    // Fonction d'affichage du formulaire de crÃ©ation d'un utilisateur.
     function creerUtilisateur(){
         $this->vue->titreVue = 'Cr&eacute;ation d\'un utilisateur';   
         
@@ -27,18 +27,18 @@ class C_Administrateur extends Controleur{
         $this->vue->afficher();
     }
     
-    //validation de création d'utilisateur 
+    //validation de crÃ©ation d'utilisateur 
     function validationcreerutilisateur(){
         $this->vue->titreVue = "Validation cr&eacute;ation de l'utilisateur";
         $utilisateur = new M_LesDonneesCreationUtilisateur();
-        // préparer la liste des paramètres
+        // prÃ©parer la liste des paramÃ¨tres
         $lesParametres = array();
         $lesLogin = new M_ListeLogin();
         $countLog="";
         $countLog= $lesLogin->getCount($_POST["login"]);
         //$this->vue->ListeLogin = $lesLogin->getCountLogin($_POST["login"]);
         $msg='';    
-        //vérifie si le login est présent dans la base de donnée si il ne l'est pas l'utilisateur est créé
+        //vÃ©rifie si le login est prÃ©sent dans la base de donnÃ©e si il ne l'est pas l'utilisateur est crÃ©Ã©
        
       if($countLog->NB=="0"){
          
@@ -60,7 +60,7 @@ class C_Administrateur extends Controleur{
           
         $ok = $utilisateur->insert($lesParametres);
       }else{
-          $msg=' Login déjà utilisé';
+          $msg=' Login dÃ©jÃ  utilisÃ©';
           $ok=0;
       }
       
@@ -72,9 +72,9 @@ class C_Administrateur extends Controleur{
         $this->vue->afficher();
     }
    
-      //affichage des étudiant
+      //affichage des Ã©tudiant
     function afficherEleve(){
-        $this->vue->titreVue = 'Tout les élèves';   
+        $this->vue->titreVue = 'Tout les Ã©lÃ¨ves';   
         
         $this->vue->loginAuthentification = MaSession::get('login');
         

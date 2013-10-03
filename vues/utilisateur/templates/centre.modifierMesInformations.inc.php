@@ -1,4 +1,4 @@
-
+﻿
 <form method="post" action=".?controleur=utilisateur&action=validerModifierCoordonees&id=<?php echo $this->lesInformations->IDPERSONNE; ?>">
     <h1>Modification des information personelle</h1>
     <fieldset>
@@ -15,9 +15,9 @@
         <input type="text" name="tel" id="tel" value="<?php echo $this->lesInformations->NUM_TEL; ?>"></input><br/>
         <?php
             if (MaSession::get('role') != 4){
-                //contenue à affichée si l'utilisateur n'est pas un étudiant
+                //contenue Ã  affichÃ©e si l'utilisateur n'est pas un Ã©tudiant
                 
-            }else{//contenue à affichée si l'utilisateur est un étudiant
+            }else{//contenue Ã  affichÃ©e si l'utilisateur est un Ã©tudiant
         ?>
                 <label for="etudes">Etudes :</label>
                 <input type="text" name="etudes" id="etudes"  value="<?php echo $this->lesInformations->ETUDES; ?>"></input><br/>
@@ -30,7 +30,7 @@
         ?>
                 <br />
                 <input type="submit" value="Sauvegarder" /><!--validation modification-->
-                <input type="button" value="Retour" onclick="history.go(-1)"><!--allez à la page précédente-->
+                <input type="button" value="Retour" onclick="history.go(-1)"><!--allez Ã  la page prÃ©cÃ©dente-->
                 
     </fieldset>
    

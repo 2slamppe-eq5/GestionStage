@@ -1,4 +1,4 @@
-<?php
+﻿<?php
 
 class C_Accueil extends Controleur {
 
@@ -38,15 +38,15 @@ class C_Accueil extends Controleur {
 
     /**
      * controleur= accueil & action= authentifier
-     * Vérifier les données d'authentification :
-     *  - si c'est correct, démarrer une nouvelle session et afficher la page d'accueil
-     *  - sinon, réafficher l'écran d'authentification
+     * VÃ©rifier les donnÃ©es d'authentification :
+     *  - si c'est correct, dÃ©marrer une nouvelle session et afficher la page d'accueil
+     *  - sinon, rÃ©afficher l'Ã©cran d'authentification
      */
     function authentifier() {
         $this->vue->titreVue = "GestStage : Accueil";
         $this->vue->entete = "../vues/templates/entete.inc.php";
         
-        // préparer la liste des catégories de produits pour le menu de gauche
+        // prÃ©parer la liste des catÃ©gories de produits pour le menu de gauche
         $this->vue->gauche = "../vues/templates/gauche.inc.php";
         $this->vue->pied = "../vues/templates/pied.inc.php";
         $this->vue->centre = "../vues/accueil/templates/centre.inc.php";
@@ -56,7 +56,7 @@ class C_Accueil extends Controleur {
         // VUE CENTRALE
         //------------------------------------------------------------------------
         $lesUsers = new M_Utilisateurs();
-        // Vérifier login et mot de passe saisis dans la formulaire d'authentification
+        // VÃ©rifier login et mot de passe saisis dans la formulaire d'authentification
         if (isset($_POST['login']) && isset($_POST['mdp'])) {
             $login = $_POST['login'];
             $mdp = $_POST['mdp'];

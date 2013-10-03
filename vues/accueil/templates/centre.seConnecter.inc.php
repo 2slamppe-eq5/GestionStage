@@ -1,5 +1,5 @@
-<!-- VARIABLES NECESSAIRES -->
-<!-- $this->message : à afficher sous le formulaire -->
+﻿<!-- VARIABLES NECESSAIRES -->
+<!-- $this->message : Ã  afficher sous le formulaire -->
 <form method="post" action=".?controleur=accueil&action=authentifier">
     <fieldset>
         <label for="login">login :</label>

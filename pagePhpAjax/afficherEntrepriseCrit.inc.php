@@ -1,7 +1,7 @@
-     <?php
+﻿     <?php
         $db=mysql_connect('localhost','root','');
         mysql_select_db('GESTAGE',$db);
-        //instentiation des donnée
+        //instentiation des donnÃ©e
         $type='';
         $ville='';
         $fj='';
@@ -10,7 +10,7 @@
         $partie3='';
         $entre1='';
         $entre2='';
-        //récupération des valeur transmise
+        //rÃ©cupÃ©ration des valeur transmise
         if(isset($_GET['value1'])){
         $type=$_GET['value1'];
             }
@@ -20,33 +20,33 @@
         if(isset($_GET['value3'])){
         $fj=$_GET['value3'];
             }
-            //création du contenue du select 
-        if($type!="null")   // si un type a été choisie on remplie la partie 1 
+            //crÃ©ation du contenue du select 
+        if($type!="null")   // si un type a Ã©tÃ© choisie on remplie la partie 1 
         {
          $partie1="ACTIVITE LIKE '%".$type."%' ";   
         }
-        if($ville!="null")   // si un type a été choisie on remplie la partie 2
+        if($ville!="null")   // si un type a Ã©tÃ© choisie on remplie la partie 2
         {
          $partie2=" VILLE_ORGANISATION='".$ville."' ";   
         }
-        if($fj!="null")   // si un type a été choisie on remplie la partie 3
+        if($fj!="null")   // si un type a Ã©tÃ© choisie on remplie la partie 3
         {
          $partie3=" FORMEJURIDIQUE='".$fj."';";   
         }
-        if(($partie1!="")&&($partie2!="")){ // si la partie 1 et 2 sont remplie met un AND entre les 2 élément
+        if(($partie1!="")&&($partie2!="")){ // si la partie 1 et 2 sont remplie met un AND entre les 2 Ã©lÃ©ment
             $entre1=" AND ";
         }
-        if(($partie2!="")&&($partie3!="")){// si la partie 2 et 3 sont remplie met un AND entre les 2 élément
+        if(($partie2!="")&&($partie3!="")){// si la partie 2 et 3 sont remplie met un AND entre les 2 Ã©lÃ©ment
             $entre2=" AND ";
         }
-        if(($partie1!="")&&($partie2=="") && ($partie2!="")){// si la partie 1 et 3 sont remplie et que la partie 2 et vide met un AND entre les 2 élément
+        if(($partie1!="")&&($partie2=="") && ($partie2!="")){// si la partie 1 et 3 sont remplie et que la partie 2 et vide met un AND entre les 2 Ã©lÃ©ment
         $entre1=" AND ";
         }
         
             
-             $requet="SELECT * FROM ORGANISATION WHERE ".$partie1." ".$entre1." ".$partie2." ".$entre2." " .$partie3; // création de la requette 
+             $requet="SELECT * FROM ORGANISATION WHERE ".$partie1." ".$entre1." ".$partie2." ".$entre2." " .$partie3; // crÃ©ation de la requette 
              $requetExe=mysql_query($requet);      
-            // création du contenue du tableau :
+            // crÃ©ation du contenue du tableau :
             
              echo'<table border="1">';
         

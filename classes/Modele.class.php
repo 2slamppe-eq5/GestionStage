@@ -1,8 +1,8 @@
-<?php
+﻿<?php
 
 define('DSN', 'mysql:host=localhost;dbname=GESTAGE');
 define('USER', 'root');
-define('MDP', 'joliverie');
+define('MDP', '');
 
 abstract class Modele {
 
@@ -12,17 +12,17 @@ abstract class Modele {
 
     /**
      * pdo
-     * Crée un objet de type PDO et ouvre la connexion 
-     * @return un objet de type PDO pour accéder à la base de données
+     * CrÃ©e un objet de type PDO et ouvre la connexion 
+     * @return un objet de type PDO pour accÃ©der Ã  la base de donnÃ©es
      */
     function connecter() {
         if (!isset($this->pdo)) {
-            /* Connexion à une base via PDO */
+            /* Connexion Ã  une base via PDO */
    
          try {
                 $this->setPdo(new PDO(DSN, USER, MDP));
             } catch (PDOException $e) {
-                echo 'Connexion échouée : ' . $e->getMessage();
+                echo 'Connexion Ã©chouÃ©e : ' . $e->getMessage();
             }
         }
         return $this->getPdo();
@@ -39,13 +39,13 @@ abstract class Modele {
      */
     function getAll() {
         $pdo = $this->connecter();
-        // Requête textuelle
+        // RequÃªte textuelle
         $query = "SELECT * FROM " . $this->table . " ORDER BY " . $this->clePrimaire . " DESC";
-        // Exécuter la requête
+        // ExÃ©cuter la requÃªte
         $resultSet = $pdo->query($query);
-        // FETCH_CLASS permet de retourner des enregistrements sous forme d'objets de la classe spécifiée
+        // FETCH_CLASS permet de retourner des enregistrements sous forme d'objets de la classe spÃ©cifiÃ©e
         // ici : $this->nomClasseMetier contient "Enregistrement"
-        // La classe Enregistrement est une classe générique vide qui sera automatiquement affublée d'autant
+        // La classe Enregistrement est une classe gÃ©nÃ©rique vide qui sera automatiquement affublÃ©e d'autant
         // d'attributs publics qu'il y a de colonnes dans le jeu d'enregistrements
         $retour = $resultSet->fetchAll(PDO::FETCH_CLASS, $this->nomClasseMetier);
         $this->deconnecter();
@@ -55,18 +55,18 @@ abstract class Modele {
 
     /**
      * get
-     * Lire un enregistrement d'après une valeur de clef primaire
+     * Lire un enregistrement d'aprÃ¨s une valeur de clef primaire
      * @param $valeurClePrimaire
      * @return une instance de la classe $this->nomClasseMetier
      */
     function get($valeurClePrimaire) {
         $pdo = $this->connecter();
-        // Requête textuelle
+        // RequÃªte textuelle
         $query = "SELECT * FROM " . $this->table . " WHERE " . $this->clePrimaire . " = ?";
         $queryPrepare = $pdo->prepare($query);
-        // Spécifier le type de classe à instancier
+        // SpÃ©cifier le type de classe Ã  instancier
         $queryPrepare->setFetchMode(PDO::FETCH_CLASS, $this->nomClasseMetier);
-        // Exécuter la requête avec les valeurs des paramètres
+        // ExÃ©cuter la requÃªte avec les valeurs des paramÃ¨tres
         $retour = null;
         if ($queryPrepare->execute(array($valeurClePrimaire))) {
             $retour = $queryPrepare->fetch(PDO::FETCH_CLASS);
@@ -75,15 +75,15 @@ abstract class Modele {
         return $retour;
     }
     
-    // fonction qui permetra de connaitre le nombre fois qu'une Identité est déjà présente dans la base de donnée 
+    // fonction qui permetra de connaitre le nombre fois qu'une IdentitÃ© est dÃ©jÃ  prÃ©sente dans la base de donnÃ©e 
      function getCount($valeurACompter) {
         $pdo = $this->connecter();
-        // Requête textuelle
+        // RequÃªte textuelle
         $query = "SELECT COUNT(*) AS NB FROM " . $this->table . " WHERE ". $this->clePrimaire ."= ? ;";
         $queryPrepare = $pdo->prepare($query);
-        // Spécifier le type de classe à instancier
+        // SpÃ©cifier le type de classe Ã  instancier
         $queryPrepare->setFetchMode(PDO::FETCH_CLASS, $this->nomClasseMetier);
-        // Exécuter la requête avec les valeurs des paramètres
+        // ExÃ©cuter la requÃªte avec les valeurs des paramÃ¨tres
         $retour = null;
         if ($queryPrepare->execute(array($valeurACompter))) {
             $retour = $queryPrepare->fetch(PDO::FETCH_CLASS);
@@ -94,12 +94,12 @@ abstract class Modele {
     
     function getFromLogin($valeurLogin) {
         $pdo = $this->connecter();
-        // Requête textuelle
+        // RequÃªte textuelle
         $query = "SELECT * FROM " . $this->table . " WHERE LOGINUTILISATEUR = '" . $valeurLogin . "'";
         $queryPrepare = $pdo->prepare($query);
-        // Spécifier le type de classe à instancier
+        // SpÃ©cifier le type de classe Ã  instancier
         $queryPrepare->setFetchMode(PDO::FETCH_CLASS, $this->nomClasseMetier);
-        // Exécuter la requête avec les valeurs des paramètres
+        // ExÃ©cuter la requÃªte avec les valeurs des paramÃ¨tres
         $retour = null;
         if ($queryPrepare->execute(array($valeurLogin))) {
             $retour = $queryPrepare->fetch(PDO::FETCH_CLASS);
@@ -110,12 +110,12 @@ abstract class Modele {
     
     function getFromLoginValeursId($valeurLogin) {
         $pdo = $this->connecter();
-        // Requête textuelle
+        // RequÃªte textuelle
         $query = "SELECT * FROM " . $this->table . " E INNER JOIN SPECIALITE O ON IDSPECIALITE = IDSPECIALITE INNER JOIN ROLE R ON R.IDROLE = E.IDROLE WHERE LOGINUTILISATEUR = '" . $valeurLogin . "'";
         $queryPrepare = $pdo->prepare($query);
-        // Spécifier le type de classe à instancier
+        // SpÃ©cifier le type de classe Ã  instancier
         $queryPrepare->setFetchMode(PDO::FETCH_CLASS, $this->nomClasseMetier);
-        // Exécuter la requête avec les valeurs des paramètres
+        // ExÃ©cuter la requÃªte avec les valeurs des paramÃ¨tres
         $retour = null;
         if ($queryPrepare->execute(array($valeurLogin))) {
             $retour = $queryPrepare->fetch(PDO::FETCH_CLASS);
@@ -127,12 +127,12 @@ abstract class Modele {
     
     function getId($id, $table, $nomLibelle, $valeur){
         $pdo = $this->connecter();
-        // Requête textuelle
+        // RequÃªte textuelle
         $query = "SELECT " . $id . " FROM " . $table . " WHERE " . $nomLibelle . " = '" . $valeur. "'";
         $resultSet = $pdo->query($query);
-        // FETCH_CLASS permet de retourner des enregistrements sous forme d'objets de la classe spécifiée
+        // FETCH_CLASS permet de retourner des enregistrements sous forme d'objets de la classe spÃ©cifiÃ©e
         // ici : $this->nomClasseMetier contient "Enregistrement"
-        // La classe Enregistrement est une classe générique vide qui sera automatiquement affublée d'autant
+        // La classe Enregistrement est une classe gÃ©nÃ©rique vide qui sera automatiquement affublÃ©e d'autant
         // d'attributs publics qu'il y a de colonnes dans le jeu d'enregistrements
         $retour = $resultSet->fetchAll(PDO::FETCH_COLUMN, 0);
         $this->deconnecter();
@@ -141,55 +141,55 @@ abstract class Modele {
 
     /**
      * update
-     * Mise à jour d'un article
+     * Mise Ã  jour d'un article
      * @param type $valeurClePrimaire (identifiant de la table)
-     * @param type $tabChampsValeurs tableau associatif des couple (champ,valeur) à intégrer à la requête
-     * @return boolean : succès/échec de la mise à jour
+     * @param type $tabChampsValeurs tableau associatif des couple (champ,valeur) Ã  intÃ©grer Ã  la requÃªte
+     * @return boolean : succÃ¨s/Ã©chec de la mise Ã  jour
      */
     function update($valeurClePrimaire, $tabChampsValeurs) {
         $pdo = $this->connecter();
-        // Construction de la requête textuelle
+        // Construction de la requÃªte textuelle
         $query = "UPDATE " . $this->table . " SET ";
-        $tabValeurs = array();   // tableau des valeurs à construire pour l'exécution de la requête
-        $numParam = 0;              // on compte les paramètres : le premier n'est pas précédé d'une virgule
+        $tabValeurs = array();   // tableau des valeurs Ã  construire pour l'exÃ©cution de la requÃªte
+        $numParam = 0;              // on compte les paramÃ¨tres : le premier n'est pas prÃ©cÃ©dÃ© d'une virgule
         foreach ($tabChampsValeurs as $champ => $valeur) {
             if ($numParam != 0) {
                 $query.= ", ";
             }
             $query.= $champ . " = ? ";  // ajout d'une clause du type champ = ?
-            $tabValeurs[] = $valeur; // mémorisation de la valeur
+            $tabValeurs[] = $valeur; // mÃ©morisation de la valeur
             $numParam++;
         }
         // Clause de restriction
         $query.= " WHERE IDPERSONNE = ? ";
         $tabValeurs[] = $valeurClePrimaire;
         $queryPrepare = $pdo->prepare($query);
-        // Exécution de la requête
+        // ExÃ©cution de la requÃªte
         $retour = $queryPrepare->execute($tabValeurs);
         $this->deconnecter();
                 
         return $retour;
     }
-    //même que précédent mais pour une organisation
+    //mÃªme que prÃ©cÃ©dent mais pour une organisation
     function updateE($valeurClePrimaire, $tabChampsValeurs) {
         $pdo = $this->connecter();
-        // Construction de la requête textuelle
+        // Construction de la requÃªte textuelle
         $query = "UPDATE " . $this->table . " SET ";
-        $tabValeurs = array();   // tableau des valeurs à construire pour l'exécution de la requête
-        $numParam = 0;              // on compte les paramètres : le premier n'est pas précédé d'une virgule
+        $tabValeurs = array();   // tableau des valeurs Ã  construire pour l'exÃ©cution de la requÃªte
+        $numParam = 0;              // on compte les paramÃ¨tres : le premier n'est pas prÃ©cÃ©dÃ© d'une virgule
         foreach ($tabChampsValeurs as $champ => $valeur) {
             if ($numParam != 0) {
                 $query.= ", ";
             }
             $query.= $champ . " = ? ";  // ajout d'une clause du type champ = ?
-            $tabValeurs[] = $valeur; // mémorisation de la valeur
+            $tabValeurs[] = $valeur; // mÃ©morisation de la valeur
             $numParam++;
         }
         // Clause de restriction
         $query.= " WHERE IDORGANISATION = ? ";
         $tabValeurs[] = $valeurClePrimaire;
         $queryPrepare = $pdo->prepare($query);
-        // Exécution de la requête
+        // ExÃ©cution de la requÃªte
         $retour = $queryPrepare->execute($tabValeurs);
         $this->deconnecter();
                 
@@ -199,13 +199,13 @@ abstract class Modele {
     /**
      * insert
      * ajouter un enregistrement dans la table 
-     * @param type $tabValeurs : tableau indexé des valeurs à intégrer à la requête (sans l'identifiant)
-     * @return boolean : succès/échec de l'insertion
+     * @param type $tabValeurs : tableau indexÃ© des valeurs Ã  intÃ©grer Ã  la requÃªte (sans l'identifiant)
+     * @return boolean : succÃ¨s/Ã©chec de l'insertion
      */
     function insert($tabValeurs) {
         $pdo = $this->connecter();
         $query = "INSERT INTO " . $this->table . " VALUES ( null";
-        // Pour chaque valeur à ajouter dans l'enregistrement, insérer un ?
+        // Pour chaque valeur Ã  ajouter dans l'enregistrement, insÃ©rer un ?
         for ($i = 0; $i < count($tabValeurs); $i++) {
             $query.= ",?";
         }
@@ -221,7 +221,7 @@ abstract class Modele {
      * delete
      * Supprimer un enregistrement de la table
      * @param type $valeurClePrimaire : identifiant de la table
-     * @return boolean : succès/échec de la suppression
+     * @return boolean : succÃ¨s/Ã©chec de la suppression
      */
     function delete($valeurClePrimaire) {
         $pdo = $this->connecter();

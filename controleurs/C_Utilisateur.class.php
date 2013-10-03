@@ -1,7 +1,7 @@
-<?php
+﻿<?php
 
 class C_Utilisateur extends Controleur{
-    // affichage des coordonnée de l'utilisateur 
+    // affichage des coordonnÃ©e de l'utilisateur 
     function coordonees(){
         
         $this->vue->titreVue = 'Vos informations';   
@@ -22,7 +22,7 @@ class C_Utilisateur extends Controleur{
         
         $this->vue->afficher();
     }
-       // midification des coordonnée de l'utilisateur 
+       // midification des coordonnÃ©e de l'utilisateur 
     function modifierCoordonees(){
         
         $this->vue->titreVue = 'Modification de vos informations';   
@@ -43,14 +43,14 @@ class C_Utilisateur extends Controleur{
         
         $this->vue->afficher();
     }
-    //validation de modification des donnée personelle à l'utilisateur
+    //validation de modification des donnÃ©e personelle Ã  l'utilisateur
     function validerModifierCoordonees(){
         
         $this->vue->titreVue = "Modification de mes informations";
         $utilisateur = new M_LesDonneesCreationUtilisateur();
-        // préparer la liste des paramètres
+        // prÃ©parer la liste des paramÃ¨tres
         $lesParametres = array();
-        // récupérer les données du formulaire
+        // rÃ©cupÃ©rer les donnÃ©es du formulaire
         $lesParametres["CIVILITE"] = $_POST["civilite"]; 
         $lesParametres["NOM"] = $_POST["nom"];
         $lesParametres["PRENOM"] = $_POST["prenom"];
@@ -70,7 +70,7 @@ class C_Utilisateur extends Controleur{
     }
     // affichage du choix de l'affichage des entrepris
     function afficherEntreprise(){
-        $this->vue->titreVue = 'Entreprise ayant déjà pris des stagiaires';   
+        $this->vue->titreVue = 'Entreprise ayant dÃ©jÃ  pris des stagiaires';   
         
         $this->vue->loginAuthentification = MaSession::get('login');
                
@@ -87,9 +87,9 @@ class C_Utilisateur extends Controleur{
           
           
       }
-      //affiché toute les entreprises sans critére 
+      //affichÃ© toute les entreprises sans critÃ©re 
     function afficherEntrepriseALL(){
-        $this->vue->titreVue = 'Entreprise ayant pris déjà pris des stagiaires';   
+        $this->vue->titreVue = 'Entreprise ayant pris dÃ©jÃ  pris des stagiaires';   
         
         $this->vue->loginAuthentification = MaSession::get('login');
         
@@ -107,9 +107,9 @@ class C_Utilisateur extends Controleur{
         
         $this->vue->afficher();
       }
-     //affiché les entreprises triées par critéres    
+     //affichÃ© les entreprises triÃ©es par critÃ©res    
     function afficherEntrepriseSpec(){
-        $this->vue->titreVue = 'Entreprise ayant pris déjà pris des stagiaires';   
+        $this->vue->titreVue = 'Entreprise ayant pris dÃ©jÃ  pris des stagiaires';   
         
         $this->vue->loginAuthentification = MaSession::get('login');
         
@@ -131,7 +131,7 @@ class C_Utilisateur extends Controleur{
           
           
       }
-     //formulaire de création d'entreprise 
+     //formulaire de crÃ©ation d'entreprise 
     function creerEntreprise(){
         $this->vue->titreVue = 'Creer Entreprise ';   
         
@@ -150,21 +150,21 @@ class C_Utilisateur extends Controleur{
           
           
       }
-    //validation de création d'entreprise   
+    //validation de crÃ©ation d'entreprise   
     function validationcreerentreprise(){
         $this->vue->titreVue = "Validation cr&eacute;ation de l'entreprise";
         $entreprise = new M_LesDonneesCreationEntreprise();
-        // préparer la liste des paramètres
+        // prÃ©parer la liste des paramÃ¨tres
         $lesParametres = array();
         $lesEntreprise = new M_ListeEntreprise();
         $countEnt="";
         $countEnt= $lesEntreprise->getCount($_POST["nom"]);
         
         $msg='';    
-        //vérifie si le login est présent dans la base de donnée si l'entreprise n'est pas déjà créé
+        //vÃ©rifie si le login est prÃ©sent dans la base de donnÃ©e si l'entreprise n'est pas dÃ©jÃ  crÃ©Ã©
        
       if($countEnt->NB=="0"){
-        //mise en majuscule de la ville et de la forme juridique pour unifié ces 2 critére
+        //mise en majuscule de la ville et de la forme juridique pour unifiÃ© ces 2 critÃ©re
         
         
         $lesParametres[0] = $_POST["nom"];
@@ -178,7 +178,7 @@ class C_Utilisateur extends Controleur{
         
         $ok = $entreprise->insert($lesParametres);
       }else{
-          $msg=' Entreprise Déjà enregistré';
+          $msg=' Entreprise DÃ©jÃ  enregistrÃ©';
           $ok=0;
       }
       
@@ -191,7 +191,7 @@ class C_Utilisateur extends Controleur{
     }
     //mettre a jours les information d'une entreprise
     function majEntreprise(){
-        $this->vue->titreVue = 'Mise à jour Entreprise ';   
+        $this->vue->titreVue = 'Mise Ã  jour Entreprise ';   
         
         $this->vue->loginAuthentification = MaSession::get('login');
         
@@ -217,9 +217,9 @@ class C_Utilisateur extends Controleur{
         
         $this->vue->titreVue = "Modification information entreprise";
         $entreprise = new M_LesDonneesCreationEntreprise();
-        // préparer la liste des paramètres
+        // prÃ©parer la liste des paramÃ¨tres
         $lesParametres = array();
-        // récupérer les données du formulaire
+        // rÃ©cupÃ©rer les donnÃ©es du formulaire
         $lesParametres["NOM_ORGANISATION"] = $_POST["nom"];
         $lesParametres["VILLE_ORGANISATION"] = $_POST["ville"];
         $lesParametres["ADRESSE_ORGANISATION"] = $_POST["ads"];
@@ -261,7 +261,7 @@ class C_Utilisateur extends Controleur{
           
           
       }
-     //deuxiéme pages d'ajout d'un stage 
+     //deuxiÃ©me pages d'ajout d'un stage 
     function ajoutStageEtapeEntreprise(){
         $this->vue->titreVue = 'Ajouter un stage Etape 2';   
         

@@ -1,4 +1,4 @@
-<form>
+﻿<form>
      <h1>Choisir l'entreprise prenant le stagiaire</h1>
 <fieldset>
     
@@ -9,7 +9,7 @@
                    echo"<option value='".$LesEntreprise->IDORGANISATION ."'>".$LesEntreprise->NOM_ORGANISATION."</value>" ;
             }
         ?>    
-            <option value="creation">Non présente</option>
+            <option value="creation">Non prÃ©sente</option>
         
         </select> 
         

@@ -1,8 +1,8 @@
-<?php
+﻿<?php
 
 /**
  * __autoload
- * @param string $classe : charge une classe à la demande
+ * @param string $classe : charge une classe Ã  la demande
  */
 function __autoload($classe) {
     $suffixe = substr($classe, 0, 2);
@@ -27,7 +27,7 @@ function __autoload($classe) {
 
 /**
  * getNomClasse
- * @param string $typeClasse : le type de classe : 'C' => contrôleur ; 'V'=> vue ; 'M'=> modèle
+ * @param string $typeClasse : le type de classe : 'C' => contrÃ´leur ; 'V'=> vue ; 'M'=> modÃ¨le
  * @param string $suffixe : le nom de l'action ; exemple : 'afficher' , 'index', ...
  * @return string nom de classe 
  * exemple :  nomClasse('C','article') => 'C_Article'
@@ -39,10 +39,10 @@ function getNomClasse($typeClasse, $suffixe) {
 
 /**
  * getRequest
- * Lire la valeur d'un paramètre de l'URL (GET) ou d'un formulaire (POST)
- * @param string $nomParametre : nom du paramètre à lire GET ou POST 
- * @param string $valeurDefaut : valeur par défaut s'il n'est pas défini
- * @return string : valeur lue ou bien par défaut
+ * Lire la valeur d'un paramÃ¨tre de l'URL (GET) ou d'un formulaire (POST)
+ * @param string $nomParametre : nom du paramÃ¨tre Ã  lire GET ou POST 
+ * @param string $valeurDefaut : valeur par dÃ©faut s'il n'est pas dÃ©fini
+ * @return string : valeur lue ou bien par dÃ©faut
  */
 function getRequest($nomParametre, $valeurDefaut) {
     $valeurParametre= null;

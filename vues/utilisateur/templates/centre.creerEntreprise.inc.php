@@ -1,8 +1,8 @@
-<script language="JavaScript" type="text/javascript" src="../includes/fonctionsJavascript.inc.js"> </script>
+﻿<script language="JavaScript" type="text/javascript" src="../includes/fonctionsJavascript.inc.js"> </script>
 
-<!-- $this->message : à afficher sous le formulaire -->
+<!-- $this->message : Ã  afficher sous le formulaire -->
 <form method="post" action=".?controleur=utilisateur&action=validationcreerentreprise&id=<?php echo $this->id; ?>" name="CreateEntreprise">
-    <h1>Création d'entreprise</h1>
+    <h1>CrÃ©ation d'entreprise</h1>
     <fieldset>
         <legend>Ses informations </legend>
         Tout les champs sont obligatoire sauf note contraire.<br/>
@@ -15,7 +15,7 @@
         <input type="text" name="ads" id="ads"></input><br/>
         <label for="cp">Code Postal :</label>
         <input type="text" name="cp" id="cp"></input><br/>
-        <label for="tel">Téléphone :</label>
+        <label for="tel">TÃ©lÃ©phone :</label>
         <input type="text" name="tel" id="tel"></input><br/>
         <label for="fax">Fax*:</label>
         <input type="text" name="fax" id="fax"></input><br/>          
@@ -24,15 +24,15 @@
         <label for="type">Type de stage**:</label>
         <input type="text" name="type" id="type"></input><br/> 
         </br>
-  <!--bouton d'envoie des information de création d'entreprise-->
-        <input type="submit" value="Cr&eacute;er l'entreprise" onclick="return validerE()"></input><!-- OnClick éxécutera le JS qui testera tout les champ du formulaire. -->
+  <!--bouton d'envoie des information de crÃ©ation d'entreprise-->
+        <input type="submit" value="Cr&eacute;er l'entreprise" onclick="return validerE()"></input><!-- OnClick Ã©xÃ©cutera le JS qui testera tout les champ du formulaire. -->
         
     </fieldset>
     <fieldset>
-        <legend>note: </legend><!--nota de la création d'entreprise-->
+        <legend>note: </legend><!--nota de la crÃ©ation d'entreprise-->
         <ul>*: Non obligatoire</ul>
         
-        <ul>**: Syntax pour le type de stage: dev pour dévelopement , res pour reseaux et dev/res si l'entreprise accepte les 2 type de stage .</ul>
+        <ul>**: Syntax pour le type de stage: dev pour dÃ©velopement , res pour reseaux et dev/res si l'entreprise accepte les 2 type de stage .</ul>
     </fieldset>
     
     

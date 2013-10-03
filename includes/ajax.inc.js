@@ -1,4 +1,4 @@
-//fonction Jquery d'affichage de classe 
+﻿//fonction Jquery d'affichage de classe 
    jQuery(document).ready(function($){
          $('#etudes').change(function() {
              var value='';
@@ -63,7 +63,7 @@
          });
       });
       
-      //affiche les entreprise par critére
+      //affiche les entreprise par critÃ©re
       jQuery(document).ready(function($){
          $('#vChoix').click(function() {
              
@@ -74,7 +74,7 @@
              var value3='';
              value3=$('#fj').val();
              if((value1=='null')&&(value2=='null')&&(value3=='null')){
-                alert("veuillez choisir au moins 1 critére!");
+                alert("veuillez choisir au moins 1 critÃ©re!");
              }else{
             $.ajax({
                    type:"GET",

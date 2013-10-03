@@ -1,4 +1,4 @@
-<?php
+﻿<?php
 require("../includes/fonctions.inc.php");
 //recherche du nom du controleur
 $nomControleur= getRequest("controleur", "accueil");

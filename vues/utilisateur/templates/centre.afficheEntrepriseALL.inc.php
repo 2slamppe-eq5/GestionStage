@@ -1,4 +1,4 @@
-<form>
+﻿<form>
      <h1>Tableau des entreprise</h1>
 <fieldset>
     <table border="1">
@@ -17,6 +17,6 @@
     </table>
     
 </fieldset>
-    <input value="Imprimer" type ="button" onClick="window.print()"><!--bouton d'imprétion rapide-->
-    <input type="button" value="Retour" onclick="history.go(-1)"><!--bouton de retour à la pages précédente-->
+    <input value="Imprimer" type ="button" onClick="window.print()"><!--bouton d'imprÃ©tion rapide-->
+    <input type="button" value="Retour" onclick="history.go(-1)"><!--bouton de retour Ã  la pages prÃ©cÃ©dente-->
 </form>

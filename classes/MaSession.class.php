@@ -1,4 +1,4 @@
-<?php
+﻿<?php
 
 require_once ("../classes/ISession.class.php");
 
@@ -12,7 +12,7 @@ class MaSession implements ISession {
 
     static function nouvelle($lesDonneesSession) {
         self::demarrer();
-        session_regenerate_id();   // changer l'identification de session (sécurité)
+        session_regenerate_id();   // changer l'identification de session (sÃ©curitÃ©)
         foreach ($lesDonneesSession as $nomDonnee => $valeurDonnee) {
             $_SESSION["auth"]["$nomDonnee"] = $valeurDonnee;
         }
