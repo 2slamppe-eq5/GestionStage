@@ -20,7 +20,7 @@ abstract class Modele {
             /* Connexion Ã  une base via PDO */
    
          try {
-                $this->setPdo(new PDO(DSN, USER, MDP));
+                $this->setPdo(new PDO(DSN, USER, MDP, array (PDO::MYSQL_ATTR_INIT_COMMAND => 'SET NAMES \'UTF8\'')));
             } catch (PDOException $e) {
                 echo 'Connexion Ã©chouÃ©e : ' . $e->getMessage();
             }
