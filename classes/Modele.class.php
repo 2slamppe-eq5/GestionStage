@@ -1,8 +1,8 @@
 ﻿<?php
 
-define('DSN', 'mysql:host=localhost;dbname=GESTAGE');
+define('DSN', 'mysql:host=localhost;dbname=GESTAGE2');
 define('USER', 'root');
-define('MDP', '');
+define('MDP', 'joliverie');
 
 abstract class Modele {
 
