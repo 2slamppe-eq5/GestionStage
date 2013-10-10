@@ -1,6 +1,7 @@
 ﻿     <?php
-        $db=mysql_connect('localhost','root','');
-        mysql_select_db('GESTAGE',$db);
+        $db=mysql_connect('localhost','root','joliverie');
+        mysql_select_db('GESTAGE2',$db);
+        mysql_set_charset ('UTF8');
         //instentiation des donnÃ©e
         $type='';
         $ville='';

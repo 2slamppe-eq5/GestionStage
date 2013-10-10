@@ -1,7 +1,7 @@
 ﻿<script language="JavaScript" type="text/javascript" src="../includes/fonctionsJavascript.inc.js"> </script>
 <script language="JavaScript" type="text/javascript" src="../includes/jquery.js"> </script>
 <script language="JavaScript" type="text/javascript" src="../includes/ajax.inc.js"> </script>
-<form >
+<form method="post"  action='.?controleur=utilisateur&action=ajoutStageEtapeEntreprise' >
     
 <legend>Choisir la classe Ã  afficher</legend>
        
@@ -27,7 +27,27 @@
         
         
             <div id="FormulaireClasse">
+                
+                <?php /*
             <!-- div qui contiendra le select de classe en lien Ã  la fonction affichageClasse -->    
+            
+                    <label for="classe">Classe :</label>
+        
+        <select  type="select" name="classe" id="classe"><!-- OnChange apelle la fonction de remplissage des formullaire classe et option -->
+            <option value="" Selected></option>
+        <?php 
+                   $tab1=array();//variable de stockage des id filliÃ©re
+                   $cpt1=0;
+            // crÃ©ation du contenue du select :
+            foreach ($this->lesClasses as $classes) { 
+                   $tab1[$cpt1]=$classes->NUMFILIERE;     
+                   echo'<option value="'.$tab1[$cpt1].'">'.$classes->LIBELLEFILIERE.'</option>';   
+                   $cpt1=$cpt1+1;
+                   
+            }
+            
+        ?>
+        </select> */ ?>
             </div>
         
         

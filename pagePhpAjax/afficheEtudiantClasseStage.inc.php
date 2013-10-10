@@ -1,8 +1,9 @@
 ﻿
         <?php
         //connection Ã  la base de donnÃ©e 
-        $db=mysql_connect('localhost','root','');
-        mysql_select_db('GESTAGE',$db);
+        $db=mysql_connect('localhost','root','joliverie');
+        mysql_select_db('GESTAGE2',$db);
+        mysql_set_charset ('UTF8');
         //instantiation des variable
         $classe='';
         $option='';
@@ -14,11 +15,14 @@
         $option=$_GET['value2'];
             }
             
-             $requet="SELECT * FROM PERSONNE WHERE ETUDES='".$classe."' AND IDSPECIALITE='".$option."' ;"; // requete pour rÃ©cupÃ©rer le contenue  du tableaux
+             $requet="SELECT * FROM PERSONNE per
+                 INNER JOIN PROMOTION pro ON per.IDPERSONNE=pro.IDPERSONNE
+                 WHERE pro.ANNEESCOL='2013-2014'
+                 AND pro.NUMCLASSE='".$classe."' ;"; // requete pour rÃ©cupÃ©rer le contenue  du tableaux
              $requetExe=mysql_query($requet);      
             // crÃ©ation du contenue du select :
-             echo"<label>choix Ã©lÃ¨ve</label>";
-             echo'<select id="choixEleve">';
+             echo"<label>choix éleves</label>";
+             echo'<select id="choixEleve" name="choixEleve" >';
             While ($data=mysql_fetch_assoc($requetExe))  { //boucle de ligne du tableau
                       
                    echo'<option value="'.$data['IDPERSONNE'].'">'.$data['NOM'].' '.$data['PRENOM'].'</option>';   
@@ -27,6 +31,6 @@
             
         }
         echo"</select>";
-        echo"<input type='submit' action='.?controleur=utilisateur&action=ajoutStageEtapeEntreprise' value='passer Ã  la 2eme Ã©tapes'></input>"
+        echo"<input type='submit' action='.?controleur=utilisateur&action=ajoutStageEtapeEntreprise' value='passer à la 2eme étapes'></input>"
         
         ?>

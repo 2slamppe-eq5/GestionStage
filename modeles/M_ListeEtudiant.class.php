@@ -1,8 +1,9 @@
 ﻿<?php
 
-class M_ListeFormations extends Modele {
-	protected $table='PERSONNE';
-	protected $clePrimaire='FORMATION';
-}
+class M_ListeEtudiant extends Modele {
 
+    protected $table = 'PERSONNE';
+    protected $clePrimaire = 'IDPERSONNE';
+
+}
 ?>
