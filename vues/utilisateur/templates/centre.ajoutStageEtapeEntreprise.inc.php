@@ -16,10 +16,10 @@
 <form method="post" action=".?controleur=utilisateur&action=validationajoutstage" >
     <h1>Choisir l'entreprise prenant  </br><?php echo $this->leStagiaire->NOM . " " . $this->leStagiaire->PRENOM; ?> </h1>
     <fieldset>
-           <input type='hidden' id ="stagiaire" value='<?php echo $this->leStagiaire->IDPERSONNE ; ?>'>
+           <input type='hidden' id ="stagiaire" name ='stagiaire' value='<?php echo $this->leStagiaire->IDPERSONNE ; ?>'>
 
         <label for="entreprise">Entreprise :</label>
-        <select id ="entreprise">
+        <select id ="entreprise" name='entreprise'>
             <?php
             foreach ($this->lesEntreprise as $LesEntreprise) { // boucle d'affichage de toute les entreprise
                 echo"<option value='" . $LesEntreprise->IDORGANISATION . "'>" . $LesEntreprise->NOM_ORGANISATION . "</value>";
@@ -31,7 +31,7 @@
         </select> 
         
         <label for="maitre">Maître de stage :</label>
-        <select id ="maitre">
+        <select id ="maitre" name='maitre'>
             <?php
             foreach ($this->lesMaitres as $LesMaitres) { // boucle d'affichage de toute les entreprise
                 echo"<option value='" . $LesMaitres->IDPERSONNE . "'>" . $LesMaitres->CIVILITE." ".$LesMaitres->PRENOM." ".$LesMaitres->NOM. "</value>";
@@ -42,9 +42,9 @@
         </select> 
 
         <label for="dateDebut">Date de début:</label>
-        <input type="text" id="dateDebut" />
+        <input type="text" id="dateDebut" name='dateDebut'/>
         <label for="dateFin ">Date de fin:</label>
-        <input type="text" id="dateFin" />
+        <input type="text" id="dateFin" name='dateFin' />
 
 
     </fieldset>
@@ -53,7 +53,7 @@
 
 
         <label for="professeur">Professeur :</label>
-        <select id ="professeur">
+        <select id ="professeur" name='professeur'>
             <?php
             foreach ($this->lesProfesseurs as $LesProfesseurs) { // boucle d'affichage de toute les entreprise
                 echo"<option value='" . $LesProfesseurs->IDPERSONNE . "'>" .  $LesProfesseurs->CIVILITE." ".$LesProfesseurs->PRENOM." ". $LesProfesseurs->NOM . "</value>";
@@ -64,7 +64,7 @@
         </select> 
 
         <label for="dateVisit">Date de visite:</label>
-        <input type="text" id="dateVisit" />
+        <input type="text" id="dateVisit" name='dateVisit'/>
 
     </fieldset>
          <fieldset>

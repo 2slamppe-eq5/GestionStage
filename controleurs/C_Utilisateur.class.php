@@ -297,7 +297,6 @@ class C_Utilisateur extends Controleur {
         //vÃ©rifie si le login est prÃ©sent dans la base de donnÃ©e si l'entreprise n'est pas dÃ©jÃ  crÃ©Ã©
 
 
-
         $lesParametres[0] = "2013-2014";
         $lesParametres[1] = $_POST["stagiaire"];
         $lesParametres[2] = $_POST["professeur"];
@@ -319,9 +318,9 @@ class C_Utilisateur extends Controleur {
 
 
         if ($ok) {
-            $this->vue->message = "Entreprise cr&eacute;&eacute;";
+            $this->vue->message = "Stage ajouté";
         } else {
-            $this->vue->message = "Echec de l'ajout de l'entreprise." . $msg;
+            $this->vue->message = "Echec de l'ajout du stage" . $msg;
         }
         $this->vue->afficher();
     }
