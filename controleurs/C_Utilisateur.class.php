@@ -269,7 +269,9 @@ class C_Utilisateur extends Controleur {
         //$leStagiaire = $_POST['choixEleve'];
         $leStagiaire = new M_ListeEtudiant();
         $this->vue->leStagiaire = $leStagiaire->get($_POST['choixEleve']);
-
+        
+       $lesProfesseurs = new M_ListeProfesseur();
+        $this->vue->lesProfesseurs = $lesProfesseurs->getAllProf();
 
         $this->vue->entete = "../vues/templates/entete.inc.php";
 
