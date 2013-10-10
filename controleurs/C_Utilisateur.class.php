@@ -269,9 +269,11 @@ class C_Utilisateur extends Controleur {
         //$leStagiaire = $_POST['choixEleve'];
         $leStagiaire = new M_ListeEtudiant();
         $this->vue->leStagiaire = $leStagiaire->get($_POST['choixEleve']);
-        
-       $lesProfesseurs = new M_ListeProfesseur();
+
+        $lesProfesseurs = new M_ListeProfesseur();
         $this->vue->lesProfesseurs = $lesProfesseurs->getAllProf();
+        $lesMaitres = new M_ListeMaitreDeStage();
+        $this->vue->lesMaitres = $lesMaitres->getAllMaitre();
 
         $this->vue->entete = "../vues/templates/entete.inc.php";
 
@@ -281,6 +283,46 @@ class C_Utilisateur extends Controleur {
 
         $this->vue->pied = "../vues/templates/pied.inc.php";
 
+        $this->vue->afficher();
+    }
+
+    function validationajoutstage() {
+        $this->vue->titreVue = "Validation ajout stage";
+        $stage = new M_LesDonneesCreationStage();
+        // prÃ©parer la liste des paramÃ¨tres
+        $lesParametres = array();
+
+
+        $msg = '';
+        //vÃ©rifie si le login est prÃ©sent dans la base de donnÃ©e si l'entreprise n'est pas dÃ©jÃ  crÃ©Ã©
+
+
+
+        $lesParametres[0] = "2013-2014";
+        $lesParametres[1] = $_POST["stagiaire"];
+        $lesParametres[2] = $_POST["professeur"];
+        $lesParametres[3] = $_POST["entreprise"];
+        $lesParametres[4] = $_POST["maitre"];
+        $lesParametres[5] = $_POST["dateDebut"];
+        $lesParametres[6] = $_POST["dateFin"];
+        $lesParametres[7] = $_POST["dateVisit"];
+        $lesParametres[8] = "ville_test";
+        $lesParametres[9] = "NULL";
+        $lesParametres[10] = "NULL";
+        $lesParametres[11] = "NULL";
+        $lesParametres[12] = "NULL";
+        $lesParametres[13] = "NULL";
+        $lesParametres[14] = "NULL";
+
+
+        $ok = $stage->insert($lesParametres);
+
+
+        if ($ok) {
+            $this->vue->message = "Entreprise cr&eacute;&eacute;";
+        } else {
+            $this->vue->message = "Echec de l'ajout de l'entreprise." . $msg;
+        }
         $this->vue->afficher();
     }
 

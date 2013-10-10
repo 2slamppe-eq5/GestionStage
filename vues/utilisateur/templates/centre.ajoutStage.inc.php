@@ -3,7 +3,7 @@
 <script language="JavaScript" type="text/javascript" src="../includes/ajax.inc.js"> </script>
 <form method="post"  action='.?controleur=utilisateur&action=ajoutStageEtapeEntreprise' >
     
-<legend>Choisir la classe Ã  afficher</legend>
+<legend>Choisir la classe à afficher</legend>
        
         
         <label for="etudes">Etudes :</label>

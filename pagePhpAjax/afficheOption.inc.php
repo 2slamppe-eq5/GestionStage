@@ -10,7 +10,7 @@
         $chaine=$_GET['value'];
     }
     //si la valeur rÃ©cupÃ©rer est Ã©gale a 4 (Ã©tudiant SIO) les option sont crÃ©Ã©
-    if($chaine=='4'){
+    if($chaine=='0'){
     //dÃ©but de la crÃ©ation du select
         echo'<label for="option">option :</label>';
         echo'<select type="select" name="option" id="option">';
