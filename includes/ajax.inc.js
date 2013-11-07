@@ -62,6 +62,29 @@
                
          });
       });
+            //affiche les etudiant d'une classe pour l'admin'
+      jQuery(document).ready(function($){
+         $('#boutonAffichageStage').click(function() {
+             
+             var value1='';
+             value1=$('#classe').val();
+             var value2='';
+             value2=$('#option').val();
+            $.ajax({
+                   type:"GET",
+                   url:"../pagePhpAjax/afficheEtudiantStage.inc.php",
+                   data:"value1="+value1+"&value2="+value2,
+                   
+                   success: function(retour){
+		   $("#FormulaireEtudiantClasseStage").html('').html(retour);
+                   }
+                   
+               });
+             
+               
+         });
+      });
+      
       
       //affiche les entreprise par critÃ©re
       jQuery(document).ready(function($){

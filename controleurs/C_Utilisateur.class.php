@@ -22,7 +22,29 @@ class C_Utilisateur extends Controleur {
         $this->vue->pied = "../vues/templates/pied.inc.php";
 
         $this->vue->afficher();
-    }
+    }   
+    function afficherStage(){
+        $this->vue->titreVue = 'Liste de stage';   
+        
+        $this->vue->loginAuthentification = MaSession::get('login');
+        
+        $lesFormations = new M_ListeFormations();
+        $this->vue->lesFormations = $lesFormations->getAll();
+       
+        $this->vue->entete = "../vues/templates/entete.inc.php"; 
+                
+        $this->vue->gauche = "../vues/templates/gauche.inc.php"; 
+        
+        $this->vue->centre = "../vues/utilisateur/templates/centre.afficherStage.inc.php";
+        
+        $this->vue->pied = "../vues/templates/pied.inc.php";
+        
+        $this->vue->afficher();
+          
+          
+          
+      }
+    
 
     // midification des coordonnÃ©e de l'utilisateur 
     function modifierCoordonees() {
@@ -302,9 +324,9 @@ class C_Utilisateur extends Controleur {
         $lesParametres[2] = $_POST["professeur"];
         $lesParametres[3] = $_POST["entreprise"];
         $lesParametres[4] = $_POST["maitre"];
-        $lesParametres[5] = $_POST["dateDebut"];
-        $lesParametres[6] = $_POST["dateFin"];
-        $lesParametres[7] = $_POST["dateVisit"];
+        $lesParametres[5] = DateToSql($_POST["dateDebut"]);
+        $lesParametres[6] = DateToSql($_POST["dateFin"]);
+        $lesParametres[7] = DateToSql($_POST["dateVisit"]);
         $lesParametres[8] = "ville_test";
         $lesParametres[9] = "NULL";
         $lesParametres[10] = "NULL";

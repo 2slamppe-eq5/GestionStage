@@ -13,14 +13,14 @@
         echo "<li><a href=\".?controleur=accueil&action=seDeconnecter\">Se d&eacute;connecter</a></li>";
         echo "<li><a href=\".?controleur=utilisateur&action=coordonees\">Mes informations</a></li>";
         echo "<li><a href=\".?controleur=utilisateur&action=afficherEntreprise\">Afficher Les entreprises prenant des stagiaires</a></li>";
-        
+        echo "<li><a href=\".?controleur=utilisateur&action=afficherStage\">Afficher les stages</a></li>";
     }else{
         echo "<li><a href=\".?controleur=accueil&action=seConnecter\">Se connecter</a></li>";
     }  
         if (isset($this->loginAuthentification) && MaSession::get('role')==1){ 
             //ajout menue de gauche pour l'administrateur
     echo "<li><a href=\".?controleur=administrateur&action=creerUtilisateur\">Cr&eacute;er un utilisateur</a></li>";
-    echo "<li><a href=\".?controleur=administrateur&action=afficherEleve\">Afficher tout les Ã©lÃ¨ves</a></li>";
+    echo "<li><a href=\".?controleur=administrateur&action=afficherEleve\">Afficher tout les élèves</a></li>";
     
     
     }
