@@ -62,7 +62,7 @@ function edition(){
 }
 function DateToSql($date){
 
-  @list($mois,$jour,$annee)=explode('/',$date);
+  @list($jour,$mois,$annee)=explode('/',$date);
    return @date('Y-m-d',mktime(0,0,0,$mois,$jour,$annee));
 
 }

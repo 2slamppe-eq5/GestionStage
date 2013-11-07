@@ -42,7 +42,8 @@
 </fieldset>
     
 <fieldset>
-    <table>
+    <table border="1" >
+      
             <div id="FormulaireEtudiantClasseStage">
             <!-- div qui contiendra le tableau des eleve -->    
             </div>

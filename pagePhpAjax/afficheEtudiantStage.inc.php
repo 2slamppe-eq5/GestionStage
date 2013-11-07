@@ -23,7 +23,7 @@
                  AND pro.NUMCLASSE='".$classe."' ;"; // requete pour rÃ©cupÃ©rer le contenue  du tableaux
              $requetExe=mysql_query($requet);      
             // crÃ©ation du contenue du tableau :
-                
+               echo'<table border="1" >';
              echo'<tr><th>Nom</th><th>Prenom</th><th>Organisation</th></tr>';
             While ($data=mysql_fetch_assoc($requetExe))  { //boucle de ligne du tableau
                       
@@ -32,4 +32,5 @@
               
             
         }
+        echo'</table>'
         ?>

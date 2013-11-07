@@ -1,17 +1,11 @@
 ﻿
-<link rel="stylesheet" href="http://code.jquery.com/ui/1.10.3/themes/smoothness/jquery-ui.css" />
-<script src="http://code.jquery.com/jquery-1.9.1.js"></script>
-<script src="http://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
+
+
+<?php require '../includes/calendar.php'; ?>
 ﻿<script language="JavaScript" type="text/javascript" src="../includes/fonctionsJavascript.inc.js"> </script>
 <link rel="stylesheet" href="/resources/demos/style.css" />
 
-<script>
-    $(function() {
-        $("#dateVisit").datepicker();
-        $("#dateDebut").datepicker();
-        $("#dateFin").datepicker();
-    });
-</script>
+
 
 <form method="post" action=".?controleur=utilisateur&action=validationajoutstage" >
     <h1>Choisir l'entreprise prenant  </br><?php echo $this->leStagiaire->NOM . " " . $this->leStagiaire->PRENOM; ?> </h1>
@@ -42,9 +36,9 @@
         </select> 
 
         <label for="dateDebut">Date de début:</label>
-        <input type="text" id="dateDebut" name='dateDebut'/>
+        <input type="text" id="dateDebut" name='dateDebut'onclick="var toto = new calendar(this);"/>
         <label for="dateFin ">Date de fin:</label>
-        <input type="text" id="dateFin" name='dateFin' />
+        <input type="text" id="dateFin" name='dateFin' onclick="var toto = new calendar(this);"/>
 
 
     </fieldset>
@@ -64,7 +58,7 @@
         </select> 
 
         <label for="dateVisit">Date de visite:</label>
-        <input type="text" id="dateVisit" name='dateVisit'/>
+        <input type="text" id="dateVisit" name='dateVisit' onclick="var toto = new calendar(this);"/>
 
     </fieldset>
          <fieldset>
